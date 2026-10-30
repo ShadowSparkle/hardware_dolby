@@ -46,7 +46,7 @@ class DolbyRepository(private val context: Context) : AutoCloseable {
             DolbyAudioEffect(EFFECT_PRIORITY, audioSession = 0)
         } catch (e: Exception) {
             DolbyConstants.dlog(TAG, "Failed to create Dolby effect: ${e.message}")
-            throw e
+            throw e 
         }
     }
 

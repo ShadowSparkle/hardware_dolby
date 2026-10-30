@@ -17,8 +17,16 @@ class DolbyTileService : TileService() {
 
     override fun onStartListening() {
         super.onStartListening()
-        updateTile()
-    }
+            try {
+                updateTile()
+            } catch (e: Exception) {
+                qsTile?.apply {
+                    state = Tile.STATE_UNAVAILABLE
+                    subtitle = "Error"
+                    updateTile()
+                }
+            }
+        }
 
     override fun onClick() {
         super.onClick()
